@@ -3,12 +3,42 @@ var coconum = document.getElementById('cococount')
 var cocospersec = document.getElementById('cocospersec')
 const multibtn = document.getElementById('multitest');
 const ccc = document.getElementById('cocochopper');
+
 let cc = 0;
 let multi = 1;
+let mp = 10
+
 let cps = 1;
 let cocosps = 0
 let cccp = 100
-let mp = 10
+
+function pageload() {
+  
+  ccstr = localStorage.getItem("ccstr");
+  if(isNaN(ccstr)) {
+    ccstr = 0
+    cc = 0
+    multi = 1;
+    mp = 10
+
+    cps = 1;
+    cocosps = 0
+    cccp = 100
+    return
+  }
+  cc = parseInt(ccstr)
+  multistr = localStorage.getItem("multistr");
+  multi = parseInt(multistr)
+  mpstr = localStorage.getItem("mpstr");
+  mp = parseInt(mpstr)
+  multibtn.textContent = 'multitest ' + mp;
+  cocospsstr = localStorage.getItem("cocospsstr")
+  cocosps = parseInt(cocospsstr)
+  cccpstr = localStorage.getItem("cccpstr")
+  cccp = parseInt(cccpstr)
+  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  ccc.textContent = 'cocochopper ' + cccp;
+}
 
 coconut.addEventListener('click', () => {
 
@@ -21,6 +51,18 @@ coconut.addEventListener('click', () => {
   setTimeout(() => {
     coconut.classList.remove('clicked');
   }, 76); 
+
+  var ccstr = cc.toString();
+  localStorage.setItem("ccstr", ccstr);
+  var multistr = multi.toString();
+  localStorage.setItem("multistr", multistr);
+  var mpstr = mp.toString();
+  localStorage.setItem("mpstr", mpstr);
+  var cocospsstr = cocosps.toString();
+  localStorage.setItem("cocospsstr", cocospsstr)
+  var cccpstr = cccp.toString();
+  localStorage.setItem("cccpstr", cccpstr)
+  
 });
 
 function testmulti() {
@@ -35,7 +77,16 @@ function testmulti() {
     mp = Math.round(mp + (2/mp)*100)
     multibtn.textContent = 'multitest ' + mp;
   }
-  
+  var ccstr = cc.toString();
+  localStorage.setItem("ccstr", ccstr);
+  var multistr = multi.toString();
+  localStorage.setItem("multistr", multistr);
+  var mpstr = mp.toString();
+  localStorage.setItem("mpstr", mpstr);
+  var cocospsstr = cocosps.toString();
+  localStorage.setItem("cocospsstr", cocospsstr)
+  var cccpstr = cccp.toString();
+  localStorage.setItem("cccpstr", cccpstr)
   
 
 }
@@ -43,6 +94,8 @@ var intervalID = window.setInterval(persec, 1000);
 function persec() {
   cc = cc + cocosps
   coconum.innerHTML = cc + ' coconuts';
+  var ccstr = cc.toString();
+  localStorage.setItem("ccstr", ccstr);
 }
 function cocochopper() {
   if(cc >= cccp) {
@@ -53,6 +106,16 @@ function cocochopper() {
   }
   cocospersec.innerHTML = cocosps + ' coconuts/ps';
   
-
+  var ccstr = cc.toString();
+  localStorage.setItem("ccstr", ccstr);
+  var multistr = multi.toString();
+  localStorage.setItem("multistr", multistr);
+  var mpstr = mp.toString();
+  localStorage.setItem("mpstr", mpstr);
+  var cocospsstr = cocosps.toString();
+  localStorage.setItem("cocospsstr", cocospsstr)
+  var cccpstr = cccp.toString();
+  localStorage.setItem("cccpstr", cccpstr)
 
 }
+
