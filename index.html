@@ -9,18 +9,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body onload="pageload()">
-        <div id="cococount"></div>
-        <div id="cocospersec"></div>
-        <div id="coconut"></div>
-        <div id="seperator1"></div>
-        <div id="seperator2"></div>
-        <div id="seperator3"></div>
-        <div id="seperator4"></div>
-        <div id="buttons">
-            <button id="multitest" type="button" onclick="javascript:testmulti()">multitest 10 ccs</button>
-            <button id="cocochopper" type="button" onclick="javascript:cocochopper()">cocochopper 100 ccs</button>
-            
+    <div id="container">
+        <div id="container-left">
+            <div id="cococount"></div>
+            <div id="cocospersec"></div>
+            <div id="coconut"></div>
         </div>
+        <div id="container-center">
+            <div id="seperator1"></div>
+            <div id="seperator2"></div>
+            <div id="seperator3"></div>
+            <div id="seperator4"></div>
+        </div>
+        <div id="container-right">
+            <div id="buttons">
+                <button id="multitest" type="button" onclick="javascript:testmulti()">multitest 10 ccs</button>
+                <button id="cocochopper" type="button" onclick="javascript:cocochopper()">cocochopper 100 ccs</button>
+                <button id="cococutter" type="button" onclick="javascript:cococutter()">cococutter 550 ccs</button>
+            </div>
+        </div>
+    </div>
         <script src="clicker.js" async defer></script>
     </body>
 </html>

@@ -1,13 +1,48 @@
 
+#container-left {
+  border: 15px solid rgb(14, 212, 238);
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
+}
+#container-right {
+  border: 15px solid rgb(14, 212, 238);
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+#container-center {
+  border: 15px solid rgb(14, 212, 238);
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
 
 #coconut {
     background-image: url('images.png');
     width: 200px;
     height: 200px;
     position:relative; 
-    left:80px; 
-    top:350px;
+
     padding: 10px;
     /* ... Existing styles ... */
     transition: transform 0.2s ease-in-out;
@@ -25,8 +60,7 @@
     user-select: none;
     font-size: 50px;
     position:relative; 
-    left:90px; 
-    top:350px;
+
 }
 
 #cocospersec {
@@ -38,64 +72,35 @@
   user-select: none;
   font-size: 50px;
   position:relative; 
-  left:90px; 
-  top:350px;
-}
-
-#seperator1 {
-  position:relative; 
-  left:400px; 
-  top: -300px;
-  border-left: 15px solid rgb(14, 212, 238);
-  height: 1100px;
-}
-
-#seperator2 {
-  border-top: 15px solid rgb(14, 212, 238);
-  height: 1000px;
-  width: 1000px;
-  position:relative; 
-  left:400px; 
-  top: -1200px;
 
 }
 
-
-#seperator3 {
-  border-top: 15px solid rgb(14, 212, 238);
-  height: 100px;
-  width: 1000px;
-  position:relative; 
-  left:400px; 
-  top: -1900px;
-
-}
-#seperator4 {
-  position:relative; 
-  left:1400px; 
-  top: -3000px;
-  border-left: 15px solid rgb(14, 212, 238);
-  height: 1580px;
-}
 
 #multitest {
   position:relative; 
-  left:1420px; 
-  top: -3900px;
+
   font-size: 50px;
   font-size: 16px;
   padding: 15px 32px;
-  width: 500px;
+  width: 100%;
   
 }
 
 #cocochopper {
   position:relative; 
-  left: 915px; 
-  top: -3840px;
+
   font-size: 50px;
   font-size: 16px;
   padding: 15px 32px;
-  width: 500px;
+  width: 100%;
+  
+}
+#cococutter {
+  position:relative; 
+
+  font-size: 50px;
+  font-size: 16px;
+  padding: 15px 32px;
+  width: 100%;
   
 }

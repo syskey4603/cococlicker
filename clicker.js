@@ -3,6 +3,7 @@ var coconum = document.getElementById('cococount')
 var cocospersec = document.getElementById('cocospersec')
 const multibtn = document.getElementById('multitest');
 const ccc = document.getElementById('cocochopper');
+const cococutterpb = document.getElementById('cococutter');
 
 let cc = 0;
 let multi = 1;
@@ -11,6 +12,8 @@ let mp = 10
 let cps = 1;
 let cocosps = 0
 let cccp = 100
+
+let cococutterp = 550
 
 function pageload() {
   
@@ -24,6 +27,7 @@ function pageload() {
     cps = 1;
     cocosps = 0
     cccp = 100
+    cococutterp = 550
     return
   }
   cc = parseInt(ccstr)
@@ -38,6 +42,18 @@ function pageload() {
   cccp = parseInt(cccpstr)
   cocospersec.innerHTML = cocosps + ' coconuts/ps';
   ccc.textContent = 'cocochopper ' + cccp;
+
+  cococutterpstr = localStorage.getItem("cococutterpstr")
+  if(isNaN(cococutterpstr) || !cococutterpstr) {
+    cococutterp = 550
+
+
+  }
+  else {  
+
+    cococutterp = parseInt(cococutterpstr)
+
+  } 
 }
 
 coconut.addEventListener('click', () => {
@@ -119,3 +135,34 @@ function cocochopper() {
 
 }
 
+function cococutter() {
+  alert("button clicked")
+  if(cc >= cococutterp) {
+    alert("entered if statement")
+    cocosps = cocosps + 50
+    cc = cc - cococutterp
+    cococutterp = Math.round(cococutterp + (15/cococutterp)*100)
+    cococutterpb.textContent = 'cococutter ' + cococutterp;
+  }
+  else {
+    alert(cc)
+    alert(cococutterp)
+    alert(cocosps)
+  }
+
+  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+
+  var ccstr = cc.toString();
+  localStorage.setItem("ccstr", ccstr);
+  var multistr = multi.toString();
+  localStorage.setItem("multistr", multistr);
+  var mpstr = mp.toString();
+  localStorage.setItem("mpstr", mpstr);
+  var cocospsstr = cocosps.toString();
+  localStorage.setItem("cocospsstr", cocospsstr)
+  var cccpstr = cccp.toString();
+  localStorage.setItem("cccpstr", cccpstr)
+  var cococutterpstr = cococutterp.toString();
+  localStorage.setItem("cocutterpstr", cococutterpstr)
+
+}
