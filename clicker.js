@@ -136,9 +136,7 @@ function cocochopper() {
 }
 
 function cococutter() {
-  alert("button clicked")
   if(cc >= cococutterp) {
-    alert("entered if statement")
     cocosps = cocosps + 50
     cc = cc - cococutterp
     cococutterp = Math.round(cococutterp + (15/cococutterp)*100)
