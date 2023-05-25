@@ -44,7 +44,7 @@ function pageload() {
   cocosps = parseInt(cocospsstr)
   cccpstr = localStorage.getItem("cccpstr")
   cccp = parseInt(cccpstr)
-  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  cocospersec.innerHTML = numconvert(cocosps) + ' coconuts/ps';
   ccc.textContent = 'cocochopper ' + numconvert(cccp);
   cococutterpstr = localStorage.getItem("cococutterpstr")
   cocoeaterpstr = localStorage.getItem("cocoeaterpstr")
