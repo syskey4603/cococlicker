@@ -39,41 +39,42 @@ function pageload() {
   multi = parseInt(multistr)
   mpstr = localStorage.getItem("mpstr");
   mp = parseInt(mpstr)
-  multibtn.textContent = 'multitest ' + mp;
+  multibtn.textContent = 'multitest ' + numconvert(mp);
   cocospsstr = localStorage.getItem("cocospsstr")
   cocosps = parseInt(cocospsstr)
   cccpstr = localStorage.getItem("cccpstr")
   cccp = parseInt(cccpstr)
   cocospersec.innerHTML = cocosps + ' coconuts/ps';
-  ccc.textContent = 'cocochopper ' + cccp;
+  ccc.textContent = 'cocochopper ' + numconvert(cccp);
   cococutterpstr = localStorage.getItem("cococutterpstr")
   cocoeaterpstr = localStorage.getItem("cocoeaterpstr")
 
 
+
   if(isNaN(cococutterpstr) || !cococutterpstr) {
     cococutterp = 550
-    cococutterpb.textContent = 'cococutter ' + cococutterp;
+    cococutterpb.textContent = 'cococutter ' + numconvert(cococutterp);
 
 
   }
   else {  
 
     cococutterp = parseInt(cococutterpstr)
-    cococutterpb.textContent = 'cococutter ' + cococutterp;
+    cococutterpb.textContent = 'cococutter ' + numconvert(cococutterp);
 
 
   } 
 
   if(isNaN(cocoeaterpstr) || !cocoeaterpstr) {
     cocoeaterp = 5000
-    cocoeaterpb.textContent = 'cococutter ' + cocoeaterp;
+    cocoeaterpb.textContent = 'cocoeater ' + numconvert(cocoeaterp);
 
 
   }
   else {  
 
     cocoeaterp = parseInt(cocoeaterpstr)
-    cocoeaterpb.textContent = 'cocoeater ' + cocoeaterp;
+    cocoeaterpb.textContent = 'cocoeater ' + numconvert(cocoeaterp);
 
 
   } 
@@ -84,7 +85,7 @@ coconut.addEventListener('click', () => {
   audio.play();
 
   cc=cc+cps*multi;
-  coconum.innerHTML = cc + ' coconuts';
+  coconum.innerHTML = numconvert(cc) + ' coconuts';
   coconut.classList.add('clicked');
   
 
@@ -109,7 +110,7 @@ function testmulti() {
       multi = multi + 2  
     }
     mp = Math.round(mp*1.15)
-    multibtn.textContent = 'multitest ' + mp;
+    multibtn.textContent = 'clickmulti ' + numconvert(mp);
   }
   saveall()
 
@@ -119,7 +120,7 @@ function testmulti() {
 var intervalID = window.setInterval(persec, 1000);
 function persec() {
   cc = cc + cocosps
-  coconum.innerHTML = cc + ' coconuts';
+  coconum.innerHTML = numconvert(cc) + ' coconuts';
   var ccstr = cc.toString();
   localStorage.setItem("ccstr", ccstr);
 }
@@ -128,9 +129,9 @@ function cocochopper() {
     cocosps++
     cc = cc - cccp
     cccp = Math.round(cccp*1.15)
-    ccc.textContent = 'cocochopper ' + cccp;
+    ccc.textContent = 'cocochopper ' + numconvert(cccp);
   }
-  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  cocospersec.innerHTML = numconvert(cocosps) + ' coconuts/ps';
   saveall()
 
 
@@ -141,13 +142,13 @@ function cococutter() {
     cocosps = cocosps + 50
     cc = cc - cococutterp
     cococutterp = Math.round(cococutterp*1.15)
-    cococutterpb.textContent = 'cococutter ' + cococutterp;
+    cococutterpb.textContent = 'cococutter ' + numconvert(cococutterp);
   }
   else {
     alert("your too poor")
   }
 
-  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  cocospersec.innerHTML = numconvert(cocosps) + ' coconuts/ps';
   saveall()
 
 
@@ -185,6 +186,26 @@ function cocoeater() {
     alert("your too poor")
   }
 
-  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  cocospersec.innerHTML = numconvert(cocosps) + ' coconuts/ps';
   saveall()
 } 
+
+
+function numconvert(labelValue) {
+
+  // Nine Zeroes for Billions
+  return Math.abs(Number(labelValue)) >= 1.0e+9
+
+  ? (Math.abs(Number(labelValue)) / 1.0e+9).toFixed(2) + "B"
+  // Six Zeroes for Millions 
+  : Math.abs(Number(labelValue)) >= 1.0e+6
+
+  ? (Math.abs(Number(labelValue)) / 1.0e+6).toFixed(2) + "M"
+  // Three Zeroes for Thousands
+  : Math.abs(Number(labelValue)) >= 1.0e+3
+
+  ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(2) + "K"
+
+  : Math.abs(Number(labelValue));
+
+}
