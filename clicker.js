@@ -119,11 +119,13 @@ function testmulti() {
 }
 var intervalID = window.setInterval(persec, 1000);
 function persec() {
-  cc = cc + cocosps
-  coconum.innerHTML = numconvert(cc) + ' coconuts';
+  addcocos(cocosps)
+  //cc = cc + cocosps
+  //coconum.innerHTML = numconvert(cc) + ' coconuts';
   var ccstr = cc.toString();
   localStorage.setItem("ccstr", ccstr);
 }
+
 function cocochopper() {
   if(cc >= cccp) {
     cocosps++
@@ -172,7 +174,7 @@ function saveall() {
 }
 
 function devmode() {
-  alert("only for sxskey")
+  persec()
 }
 
 function cocoeater() {
@@ -196,16 +198,33 @@ function numconvert(labelValue) {
   // Nine Zeroes for Billions
   return Math.abs(Number(labelValue)) >= 1.0e+9
 
-  ? (Math.abs(Number(labelValue)) / 1.0e+9).toFixed(2) + "B"
+  ? (Math.abs(Number(labelValue)) / 1.0e+9).toFixed(3) + "B"
   // Six Zeroes for Millions 
   : Math.abs(Number(labelValue)) >= 1.0e+6
 
-  ? (Math.abs(Number(labelValue)) / 1.0e+6).toFixed(2) + "M"
+  ? (Math.abs(Number(labelValue)) / 1.0e+6).toFixed(3) + "M"
   // Three Zeroes for Thousands
   : Math.abs(Number(labelValue)) >= 1.0e+3
 
-  ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(2) + "K"
+  ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(3) + "K"
 
   : Math.abs(Number(labelValue));
 
 }
+
+function addcocos(amount) {
+  let endvalue = cc + amount
+  let interval = amount;
+  let duration = 1
+
+
+  let counter = setInterval(function () {
+    cc += (interval/1000);
+    coconum.innerHTML = numconvert(cc) + ' coconuts';
+    if (cc >= endvalue) {
+      clearInterval(counter);
+    }
+  }, duration);
+
+}
+
