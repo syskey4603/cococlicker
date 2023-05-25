@@ -126,9 +126,7 @@ function cococutter() {
     cococutterpb.textContent = 'cococutter ' + cococutterp;
   }
   else {
-    alert(cc)
-    alert(cococutterp)
-    alert(cocosps)
+    alert("your too poor")
   }
 
   cocospersec.innerHTML = cocosps + ' coconuts/ps';
@@ -152,3 +150,6 @@ function saveall() {
   localStorage.setItem("cococutterpstr", cococutterpstr)
 }
 
+function devmode() {
+  alert("only for sxskey")
+}
