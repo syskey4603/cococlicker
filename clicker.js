@@ -180,7 +180,7 @@ function cocoeater() {
     cocosps = cocosps + 100
     cc = cc - cocoeaterp
     cocoeaterp = Math.round(cocoeaterp*1.15)
-    cocoeaterpb.textContent = 'cocoeater ' + cocoeaterp;
+    cocoeaterpb.textContent = 'cocoeater ' + numconvert(cocoeaterp);
   }
   else {
     alert("your too poor")
