@@ -5,6 +5,7 @@ const multibtn = document.getElementById('multitest');
 const ccc = document.getElementById('cocochopper');
 const cococutterpb = document.getElementById('cococutter');
 const inpcontainer = document.getElementById('container-left');
+const cocoeaterpb = document.getElementById('cocoeater')
 
 let cc = 0;
 let multi = 1;
@@ -15,6 +16,7 @@ let cocosps = 0
 let cccp = 100
 
 let cococutterp = 550
+let cocoeaterp = 5000
 
 function pageload() {
   
@@ -29,6 +31,7 @@ function pageload() {
     cocosps = 0
     cccp = 100
     cococutterp = 550
+    cocoeaterp = 5000
     return
   }
   cc = parseInt(ccstr)
@@ -43,8 +46,9 @@ function pageload() {
   cccp = parseInt(cccpstr)
   cocospersec.innerHTML = cocosps + ' coconuts/ps';
   ccc.textContent = 'cocochopper ' + cccp;
-
   cococutterpstr = localStorage.getItem("cococutterpstr")
+  cocoeaterpstr = localStorage.getItem("cocoeaterpstr")
+
 
   if(isNaN(cococutterpstr) || !cococutterpstr) {
     cococutterp = 550
@@ -56,6 +60,20 @@ function pageload() {
 
     cococutterp = parseInt(cococutterpstr)
     cococutterpb.textContent = 'cococutter ' + cococutterp;
+
+
+  } 
+
+  if(isNaN(cocoeaterpstr) || !cocoeaterpstr) {
+    cocoeaterp = 5000
+    cocoeaterpb.textContent = 'cococutter ' + cocoeaterp;
+
+
+  }
+  else {  
+
+    cocoeaterp = parseInt(cocoeaterpstr)
+    cocoeaterpb.textContent = 'cocoeater ' + cocoeaterp;
 
 
   } 
@@ -148,8 +166,25 @@ function saveall() {
   localStorage.setItem("cccpstr", cccpstr)
   var cococutterpstr = cococutterp.toString();
   localStorage.setItem("cococutterpstr", cococutterpstr)
+  var cocoeaterpstr = cocoeaterp.toString();
+  localStorage.setItem("cocoeaterpstr", cocoeaterpstr)
 }
 
 function devmode() {
   alert("only for sxskey")
 }
+
+function cocoeater() {
+  if(cc >= cocoeaterp) {
+    cocosps = cocosps + 100
+    cc = cc - cocoeaterp
+    cocoeaterp = Math.round(cocoeaterp*1.15)
+    cocoeaterpb.textContent = 'cococutter ' + cocoeaterp;
+  }
+  else {
+    alert("your too poor")
+  }
+
+  cocospersec.innerHTML = cocosps + ' coconuts/ps';
+  saveall()
+} 
