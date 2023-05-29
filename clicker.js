@@ -6,7 +6,9 @@ const ccc = document.getElementById('cocochopper');
 const cococutterpb = document.getElementById('cococutter');
 const inpcontainer = document.getElementById('container-left');
 const cocoeaterpb = document.getElementById('cocoeater')
-
+const devmode = document.getElementById('devmode')
+const consolelog = document.getElementById('logs')
+let noclicks = 0
 let cc = 0;
 let multi = 1;
 let mp = 10
@@ -17,7 +19,13 @@ let cccp = 100
 
 let cococutterp = 550
 let cocoeaterp = 5000
+let demonspawned = "false";
+let mousePos = { x: undefined, y: undefined };
 
+document.addEventListener('mousemove', (event) => {
+  mousePos = { x: event.pageX, y: event.pageY };
+
+});
 function pageload() {
   
   ccstr = localStorage.getItem("ccstr");
@@ -48,7 +56,15 @@ function pageload() {
   ccc.textContent = 'cocochopper ' + numconvert(cccp);
   cococutterpstr = localStorage.getItem("cococutterpstr")
   cocoeaterpstr = localStorage.getItem("cocoeaterpstr")
+  demonspawned = localStorage.getItem("demonspawned")
+  noclicksstr = localStorage.getItem("noclicksstr")
+  noclicks = parseInt(noclicksstr)
 
+
+  if(demonspawned == "true") {
+    logtest("test2")
+    cocodemonspawn()
+  }
 
 
   if(isNaN(cococutterpstr) || !cococutterpstr) {
@@ -87,7 +103,23 @@ coconut.addEventListener('click', () => {
   cc=cc+cps*multi;
   coconum.innerHTML = numconvert(cc) + ' coconuts';
   coconut.classList.add('clicked');
+  let text = document.getElementById("text");
+  cocosperclick = cps*multi
   
+  text.innerHTML = "+" + cocosperclick.toString()
+  text.style.left = mousePos.x + 'px';
+  text.style.top = mousePos.y + 'px';
+  logtest(mousePos.x, mousePos.y)
+  text.classList.remove("hide");
+  setTimeout(function () {
+    text.classList.add("fade-in");
+    setTimeout(function () {
+      text.classList.remove("fade-in");
+      setTimeout(function () {
+        text.classList.add("hide");
+      }, 1000);
+    }, 1000);
+  });
 
   
 
@@ -171,10 +203,13 @@ function saveall() {
   localStorage.setItem("cococutterpstr", cococutterpstr)
   var cocoeaterpstr = cocoeaterp.toString();
   localStorage.setItem("cocoeaterpstr", cocoeaterpstr)
+  localStorage.setItem("demonspawned", demonspawned)
+  var noclicksstr = noclicks.toString();
+  localStorage.setItem("noclicksstr", noclicksstr)
 }
 
-function devmode() {
-  persec()
+function devmode1() {
+  
 }
 
 function cocoeater() {
@@ -225,6 +260,53 @@ function addcocos(amount) {
       clearInterval(counter);
     }
   }, duration);
+
+}
+
+function logtest(logtext1, logtext2) {
+  consolelog.innerHTML = logtext1;
+
+
+}
+
+var intervalId1 = window.setInterval(function(){
+  cocodemonspawn()
+}, 300000);
+
+
+
+function cocodemonspawn() {
+  logtest("test")
+  demonspawned = "true";
+  var elem = document.createElement("img");
+  elem.src = 'cococutter.png';
+  //elem.setAttribute("height", "768");
+  //elem.setAttribute("width", "1024");
+  document.getElementById("container-center").appendChild(elem);
+  
+  saveall()
+  elem.addEventListener('click', () => {
+    noclicks++
+    if(noclicks>=20){
+      clearInterval(intervalId2) 
+      elem.remove()
+      demonspawned = "false";
+      noclicks = 0;
+      savell()
+    }
+  })
+
+  var intervalId2 = window.setInterval(function(){
+    cc = Math.round(cc*0.99)  
+  }, 1000);
+
+  
+  
+
+
+  
+
+
 
 }
 
