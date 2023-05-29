@@ -61,10 +61,7 @@ function pageload() {
   noclicks = parseInt(noclicksstr)
 
 
-  if(demonspawned == "true") {
-    logtest("test2")
-    cocodemonspawn()
-  }
+
 
 
   if(isNaN(cococutterpstr) || !cococutterpstr) {
@@ -94,6 +91,22 @@ function pageload() {
 
 
   } 
+  if(isNaN(demonspawned) || !demonspawned) {
+    demonspawned = "false"
+    
+
+
+  }
+  else {  
+
+    
+
+
+  } 
+  if(demonspawned == "true") {
+    logtest("test2")
+    cocodemonspawn()
+  }
 }
 
 coconut.addEventListener('click', () => {
