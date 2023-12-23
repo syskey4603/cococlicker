@@ -286,7 +286,7 @@ function logtest(logtext1) {
 
 var intervalId1 = window.setInterval(function(){
   cocodemonspawn()
-}, 70000);
+}, 100000);
 
 
 
