@@ -160,7 +160,7 @@ function persec() {
 
 function cocochopper() {
   if(cc >= cccp) {
-    cocosps++
+    cocosps = cocosps + 1
     cc = cc - cccp
     cccp = Math.round(cccp*1.15)
     ccc.textContent = 'cocochopper ' + numconvert(cccp);
@@ -243,27 +243,42 @@ function numconvert(labelValue) {
 
   ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(3) + "K"
 
-  : Math.abs(Number(labelValue));
+  : Math.abs(Number(labelValue).toFixed(3)) + " ";
 
 }
+/*
+function addcocos(amount) {
+  if(cc > 1000) {
+    let endvalue = cc + amount
+    let interval = amount;
+    let duration = 1  
+
+
+    let counter = setInterval(function () {
+      cc += (interval/1000);
+      coconum.innerHTML = numconvert(cc) + ' coconuts';
+      if (cc >= endvalue) {
+        clearInterval(counter);
+      }
+    }, duration);
+
+  }
+  else {
+    cc += amount
+    coconum.innerHTML = cc + ' coconuts';
+
+  }
+}
+*/
 
 function addcocos(amount) {
-  let endvalue = cc + amount
-  let interval = amount;
-  let duration = 1
-
-
-  let counter = setInterval(function () {
-    cc += (interval/1000);
+    cc += amount
     coconum.innerHTML = numconvert(cc) + ' coconuts';
-    if (cc >= endvalue) {
-      clearInterval(counter);
-    }
-  }, duration);
 
 }
 
-function logtest(logtext1, logtext2) {
+
+function logtest(logtext1) {
   consolelog.innerHTML = logtext1;
 
 
@@ -271,7 +286,7 @@ function logtest(logtext1, logtext2) {
 
 var intervalId1 = window.setInterval(function(){
   cocodemonspawn()
-}, 10000);
+}, 70000);
 
 
 
@@ -298,7 +313,7 @@ function cocodemonspawn() {
 
   var intervalId2 = window.setInterval(function(){
     cc = Math.round(cc*0.99)  
-  }, 1000);
+  }, 5000);
 
   
   
