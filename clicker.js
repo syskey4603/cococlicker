@@ -27,21 +27,8 @@ document.addEventListener('mousemove', (event) => {
 
 });
 function pageload() {
-  
+  console.log("pageload")
   ccstr = localStorage.getItem("ccstr");
-  if(isNaN(ccstr)) {
-    ccstr = 0
-    cc = 0
-    multi = 1;
-    mp = 10
-
-    cps = 1;
-    cocosps = 0
-    cccp = 100
-    cococutterp = 550
-    cocoeaterp = 5000
-    return
-  }
   cc = parseInt(ccstr)
   multistr = localStorage.getItem("multistr");
   multi = parseInt(multistr)
@@ -59,13 +46,36 @@ function pageload() {
   demonspawned = localStorage.getItem("demonspawned")
   noclicksstr = localStorage.getItem("noclicksstr")
   noclicks = parseInt(noclicksstr)
+  if(isNaN(ccstr)) {
+    console.log("isnan")
+    ccstr = 0
+    cc = 0
+    multi = 1;
+    mp = 10
 
+    cps = 1;
+    cocosps = 0
+    cccp = 100
+    cococutterp = 550
+    cocoeaterp = 5000
+    return
+  }
 
   if(demonspawned == "true") {
     logtest("test2")
     cocodemonspawn()
   }
 
+
+  if(isNaN(ccstr) || !ccstr) {
+    console.log("ccstr isnan")
+    cc = 0
+    coconum.textContent = numconvert(cc) + ' coconuts';
+  }
+  else {
+    cc = parseInt(ccstr)
+    coconum.textContent = numconvert(cc) + ' coconuts';
+  }
 
   if(isNaN(cococutterpstr) || !cococutterpstr) {
     cococutterp = 550
