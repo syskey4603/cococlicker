@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        
+        <meta property="og:title" content="cococlicker fr fr">
+        <meta property="og:description" content="testest">
+        <meta property="og:image" content="image.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="pageload()">
+    <div id="container">
+        <div id="container-left">
+            <div id="cococount"></div>
+            <div id="cocospersec"></div>
+            <div id="coconut"><audio id="audio" src="../pop1.mp3"></audio>
+                <p id="text" class="hide">test</p>
+            </div>
+            <button id="devmode" type="button" onclick="devmode()">DevMode</button>
+            <p id="logs">console log</p>
+        </div>
+
+        <div id="container-center">
+        
+
+        </div>
+        <div id="container-right">
+            <div id="buttons">
+                <button id="multitest" type="button" onclick="javascript:testmulti()">multitest 10 ccs</button>
+                <button id="cocochopper" type="button" onclick="javascript:cocochopper()">cocochopper 100 ccs</button>
+                <button id="cococutter" type="button" onclick="javascript:cococutter()">cococutter 550 ccs</button>
+                <button id="cocoeater" type="button" onclick="javascript:cocoeater()">cocoeater 5000 ccs</button>
+            </div>
+        </div>
+    </div>
+        <script src="main.js"></script>
+    </body>
+</html>

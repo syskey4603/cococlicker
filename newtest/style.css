@@ -1,0 +1,155 @@
+
+#container-left {
+    border: 15px solid rgb(14, 212, 238);
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+  }
+  #container-right {
+    border: 15px solid rgb(14, 212, 238);
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+  }
+  #container-center {
+    border: 15px solid rgb(14, 212, 238);
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+  }
+  
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+  
+  #coconut {
+      background-image: url('coconut.png');
+      width: 200px;
+      height: 200px;
+      position:relative; 
+  
+      padding: 10px;
+      /* ... Existing styles ... */
+      transition: transform 0.2s ease-in-out;
+    }
+  
+    #coconut.clicked {
+      transform: scale(1.2);
+    }
+    #cococount {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      font-size: 50px;
+      position:relative; 
+  
+  }
+  
+  #cocospersec {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 40px;
+    position:relative; 
+  
+  }
+  
+  
+  #multitest {
+    position:relative; 
+  
+    font-size: 50px;
+    font-size: 16px;
+    padding: 15px 32px;
+    width: 100%;
+    
+  }
+  
+  #cocochopper {
+    position:relative; 
+  
+    font-size: 50px;
+    font-size: 16px;
+    padding: 15px 32px;
+    width: 100%;
+    
+  }
+  #cococutter {
+    position:relative; 
+  
+    font-size: 50px;
+    font-size: 16px;
+    padding: 15px 32px;
+    width: 100%;
+    
+  }
+  #cocoeater {
+    position:relative; 
+  
+    font-size: 50px;
+    font-size: 16px;
+    padding: 15px 32px;
+    width: 100%;
+    
+  }
+  #text {
+    font-size: 30px;
+    color: black;
+    text-shadow: 2px 2px #ffffff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    opacity: 0;
+    transition: 1s;
+  }
+  
+  
+  
+  #text.fade-in {
+    opacity: 1;
+    transition: 1s;
+  }
+  
+  
+  #text.hide {
+    display: none;
+  }
+  
+  #devmode {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  #logs {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
